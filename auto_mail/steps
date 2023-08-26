@@ -1,0 +1,35 @@
+create a folder
+git bash into the folder 
+pip install yagmail
+pip install keyring
+register your mail and password in the yagmail.SMTP initialization in your script.
+#python code
+"import yagmail
+yagmail.register('your_email@gmail.com', 'your_password')"
+Run annd clear the script
+
+The error message Application-specific password required indicates that the Google account you're trying to access has Two-Factor Authentication (2FA) enabled. When 2FA is enabled, you can't use your regular password to log in via SMTP. Instead, you have to generate an "App Password" that provides access only to specific apps and services.
+
+Here's how to generate an App Password for your Gmail account:
+
+Go to your Google Account:
+
+Visit Google Account settings.
+Security:
+
+On the left-hand side, click on "Security".
+App Passwords:
+
+Under the "Signing in to Google" section, click on "App passwords". You might be asked to sign in again to confirm it's you.
+If you don’t see "App passwords", then 2FA is not set up for your Gmail account, and the issue might be different.
+Generate an App Password:
+
+From the dropdown menu, select "Mail" as the app and choose the device you're working on (or select "Other" and give it a name). Click "Generate".
+You'll be presented with a 16-character password. Copy this password.
+Use in Your Script:
+
+Use the generated App Password in place of your regular Gmail password in the yagmail.SMTP initialization in your script.
+Run Your Script:
+
+Now when you run your script, it should authenticate and send the email without issues.
+Remember, App Passwords are sensitive, just like your actual password. Treat it with the same level of care, and avoid hardcoding it directly in scripts. Consider using environment variables or external secure configurations to store it.
